@@ -1,14 +1,14 @@
-namespace Api;
+using Api.Data;
+using Microsoft.EntityFrameworkCore;
 
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
-        var app = builder.Build();
+var builder = WebApplication.CreateBuilder(args);
 
-        app.MapGet("/", () => "Hello World!");
+// Adicionar o AppDataContext ao DI
+builder.Services.AddDbContext<AppDataContext>(options =>
+    options.UseSqlite("Data Source=escola.db"));
 
-        app.Run();
-    }
-}
+var app = builder.Build();
+
+app.MapGet("/", () => "API rodando");
+
+app.Run();
