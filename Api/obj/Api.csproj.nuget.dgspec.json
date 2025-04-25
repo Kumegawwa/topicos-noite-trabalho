@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite\\topicos-noite-trabalho-1\\Api\\Api.csproj": {}
+    "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite-trabalho-1\\Api\\Api.csproj": {}
   },
   "projects": {
-    "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite\\topicos-noite-trabalho-1\\Api\\Api.csproj": {
+    "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite-trabalho-1\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite\\topicos-noite-trabalho-1\\Api\\Api.csproj",
+        "projectUniqueName": "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite-trabalho-1\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite\\topicos-noite-trabalho-1\\Api\\Api.csproj",
+        "projectPath": "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite-trabalho-1\\Api\\Api.csproj",
         "packagesPath": "C:\\Users\\Kumegawa\\.nuget\\packages\\",
-        "outputPath": "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite\\topicos-noite-trabalho-1\\Api\\obj\\",
+        "outputPath": "D:\\Usuário\\Kumegawa\\OneDrive\\Área de Trabalho\\topicos-noite-trabalho-1\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kumegawa\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -42,6 +42,18 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
