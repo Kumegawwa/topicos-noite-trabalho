@@ -1,71 +1,109 @@
 // src/pages/ListarAluno.tsx
 import React, { useState, useEffect } from 'react';
-import api from '../services/api'; // Importa a instância configurada do Axios
-import { Aluno } from '../types'; // Importa a interface Aluno
+import { Link } from 'react-router-dom'; // Importar Link para navegação
+import api from '../services/api';
+import { Aluno } from '../types'; // Importar a interface Aluno
 
 const ListarAluno: React.FC = () => {
-  // Estado para armazenar a lista de alunos
   const [alunos, setAlunos] = useState<Aluno[]>([]);
-  // Estado para indicar se os dados estão sendo carregados
-  const [loading, setLoading] = useState<boolean>(true);
-  // Estado para armazenar mensagens de erro
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // useEffect para buscar os dados quando o componente for montado
+  // Função para buscar os alunos da API
+  const fetchAlunos = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await api.get<Aluno[]>('/alunos'); // Espera um array de Alunos
+      setAlunos(response.data);
+    } catch (err: any) { // Captura erros
+      console.error('Erro ao buscar alunos:', err);
+      setError(`Falha ao buscar alunos: ${err.message || 'Erro desconhecido'}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // useEffect para buscar os alunos quando o componente montar
   useEffect(() => {
-    // Define uma função assíncrona para buscar os dados
-    const fetchAlunos = async () => {
-      try {
-        setLoading(true); // Inicia o carregamento
-        setError(null); // Limpa erros anteriores
-        console.log('Buscando alunos em /alunos...'); // Log para depuração
-        const response = await api.get<Aluno[]>('/alunos'); // Faz a requisição GET para /alunos
-        console.log('Dados recebidos:', response.data); // Log para depuração
-        setAlunos(response.data); // Atualiza o estado com os dados recebidos
-      } catch (err) {
-        console.error('Erro ao buscar alunos:', err); // Log detalhado do erro
-        setError('Falha ao carregar a lista de alunos.'); // Define a mensagem de erro
-        setAlunos([]); // Limpa os alunos em caso de erro
-      } finally {
-        setLoading(false); // Finaliza o carregamento, mesmo que dê erro
-      }
-    };
+    fetchAlunos();
+  }, []); // Array vazio significa que executa apenas uma vez na montagem
 
-    fetchAlunos(); // Chama a função de busca
+  // Função para lidar com a exclusão de um aluno
+  const handleDelete = async (id: number) => {
+    // Confirmação antes de excluir
+    if (!window.confirm(`Tem certeza que deseja excluir o aluno com ID ${id}?`)) {
+      return;
+    }
 
-    // A função de limpeza (retorno do useEffect) é opcional aqui,
-    // pois a requisição Axios geralmente lida bem com unmounts.
-    // Para requisições mais complexas ou subscriptions, você usaria
-    // um AbortController aqui para cancelar a requisição ao desmontar.
+    try {
+      await api.delete(`/alunos/${id}`);
+      // Atualiza a lista de alunos removendo o que foi excluído
+      setAlunos(alunos.filter(aluno => aluno.id !== id));
+      alert('Aluno excluído com sucesso!'); // Feedback simples
+    } catch (err: any) {
+      console.error('Erro ao excluir aluno:', err);
+      setError(`Falha ao excluir aluno: ${err.message || 'Erro desconhecido'}`);
+      alert(`Erro ao excluir aluno: ${err.message || 'Erro desconhecido'}`); // Feedback de erro
+    }
+  };
 
-  }, []); // O array vazio [] como segundo argumento garante que o useEffect execute apenas uma vez, quando o componente montar
-
-  // Renderização condicional baseada nos estados
-  if (loading) {
+  // Renderização condicional enquanto carrega
+  if (isLoading) {
     return <p>Carregando alunos...</p>;
   }
 
+  // Renderização em caso de erro
   if (error) {
     return <p style={{ color: 'red' }}>Erro: {error}</p>;
   }
 
+  // Renderização da lista de alunos
   return (
     <div>
-      <h1>Lista de Alunos</h1>
+      <h2>Lista de Alunos</h2>
       {alunos.length === 0 ? (
-        <p>Nenhum aluno encontrado.</p>
+        <p>Nenhum aluno cadastrado.</p>
       ) : (
-        <ul>
-          {alunos.map((aluno) => (
-            <li key={aluno.id}> {/* Usa o ID como chave única */}
-              <strong>{aluno.nome}</strong>
-              {aluno.email && ` - ${aluno.email}`} {/* Exibe email se existir */}
-              {aluno.matricula && ` (Matrícula: ${aluno.matricula})`} {/* Exibe matrícula se existir */}
-            </li>
-          ))}
-        </ul>
+        <table border={1} style={{ borderCollapse: 'collapse', width: '100%' }}>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Matrícula</th>
+              <th>Data de Nascimento</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {alunos.map((aluno) => (
+              <tr key={aluno.id}>
+                <td>{aluno.id}</td>
+                <td>{aluno.nome}</td>
+                <td>{aluno.email}</td>
+                <td>{aluno.matricula}</td>
+                <td>{new Date(aluno.dataNascimento).toLocaleDateString()}</td> {/* Formata a data */}
+                <td>
+                  {/* Link para a página de edição */}
+                  <Link to={`/editar-aluno/${aluno.id}`}>
+                    <button style={{ marginRight: '5px' }}>Editar</button>
+                  </Link>
+                  {/* Botão para excluir */}
+                  <button onClick={() => handleDelete(aluno.id)} style={{ backgroundColor: 'red', color: 'white' }}>
+                    Excluir
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
-      {/* Você pode adicionar botões para adicionar, editar, excluir aqui */}
+      {/* Link para voltar ou ir para cadastro */}
+      <br />
+      <Link to="/cadastrar-aluno">
+        <button>Cadastrar Novo Aluno</button>
+      </Link>
     </div>
   );
 };
