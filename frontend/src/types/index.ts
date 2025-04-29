@@ -9,17 +9,15 @@ export interface Aluno {
   matricula: string; // Adicionado campo Matrícula
 }
 
-// Você pode adicionar outras interfaces aqui se necessário
-// export interface Curso {
-//   id: number;
-//   nome: string;
-//   materias?: Materia[]; // Lista opcional de matérias
-// }
-
-// export interface Materia {
-//   id: number;
-//   nome: string;
-//   cursoId: number;
-//   curso?: Curso; // Curso opcional
-// }
+export interface Curso {
+   id: number;
+   nome: string;
+   materias?: Materia[]; // Lista opcional de matérias
+ }
+ export interface Materia {
+   id: number;
+   nome: string;
+   cursoId: number;
+   curso?: Curso; // Curso opcional
+ }
 
