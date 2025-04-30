@@ -138,4 +138,4 @@ cd topicos-noite-trabalho
 
 > Lista de integrantes do grupo 
 
-Lucas Kumegawa de Godoi - RGM: 42045681
+- Lucas Kumegawa de Godoi - RGM: 42045681
