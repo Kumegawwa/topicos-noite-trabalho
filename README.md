@@ -139,3 +139,4 @@ cd topicos-noite-trabalho
 > Lista de integrantes do grupo 
 
 - Lucas Kumegawa de Godoi - RGM: 42045681
+- Pedro Henrique Vasconcelo - RGM: 37226142
