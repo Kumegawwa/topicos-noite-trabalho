@@ -1,25 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import ListarAlunos from './pages/alunos/ListarAlunos';
+import CadastrarAluno from './pages/alunos/CadastrarAluno';
+import EditarAluno from './pages/alunos/EditarAluno';
+import ListarCursos from './pages/cursos/ListarCursos';
+import CadastrarCurso from './pages/cursos/CadastrarCurso';
+import EditarCurso from './pages/cursos/EditarCurso';
+import ListarMaterias from './pages/materias/ListarMaterias';
+import CadastrarMateria from './pages/materias/CadastrarMateria';
+import EditarMateria from './pages/materias/EditarMateria';
+import './styles/global.css'; // Estilos globais
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app-container">
+        <Header />
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            {/* Rotas Alunos */}
+            <Route path="/alunos" element={<ListarAlunos />} />
+            <Route path="/alunos/cadastrar" element={<CadastrarAluno />} />
+            <Route path="/alunos/editar/:id" element={<EditarAluno />} />
+            {/* Rotas Cursos */}
+            <Route path="/cursos" element={<ListarCursos />} />
+            <Route path="/cursos/cadastrar" element={<CadastrarCurso />} />
+            <Route path="/cursos/editar/:id" element={<EditarCurso />} />
+            {/* Rotas Matérias */}
+            <Route path="/materias" element={<ListarMaterias />} />
+            <Route path="/materias/cadastrar" element={<CadastrarMateria />} />
+            <Route path="/materias/editar/:id" element={<EditarMateria />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
