@@ -1,0 +1,19 @@
+/* Estilos gerais para containers das páginas de Cursos */
+.cursos-container {
+  padding: 20px;
+  max-width: 900px; /* Limita a largura */
+  margin: 20px auto; /* Centraliza */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cursos-container h2 {
+  color: #343a40;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #198754; /* Linha verde abaixo do título */
+  padding-bottom: 10px;
+}
+
+/* Reutilizar estilos de tabela e formulário de global.css */
+/* Se precisar de estilos específicos para Cursos, adicione aqui */
