@@ -1,10 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Caminhos corrigidos para os componentes
+import Header from './components/Header'; 
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+// Caminhos corrigidos para as páginas
 import HomePage from './pages/HomePage';
-import ListarAlunos from './pages/alunos/ListarAlunos';
+import ListarAlunos from './pages/alunos/ListarAluno';
 import CadastrarAluno from './pages/alunos/CadastrarAluno';
 import EditarAluno from './pages/alunos/EditarAluno';
 import ListarCursos from './pages/cursos/ListarCursos';

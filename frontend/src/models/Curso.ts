@@ -1,4 +1,5 @@
-import { Materia } from "./Materia"; // Importa a interface Materia se necessário
+// Caminho corrigido para Materia
+import { Materia } from "./Materia"; 
 
 // Interface para representar um Curso
 export interface Curso {
