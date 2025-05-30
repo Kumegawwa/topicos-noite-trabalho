@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+    <!-- Verifique as versões exatas que você está usando ou use as mais recentes compatíveis -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0"> 
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" /> 
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" /> <!-- Versão comum para .NET 8, ajuste se necessário -->
   </ItemGroup>
 
 </Project>
