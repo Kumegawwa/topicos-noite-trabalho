@@ -1,0 +1,32 @@
+.app-navbar {
+  background-color: #e9ecef; /* Cor de fundo clara para a barra de navegação */
+  padding: 10px 30px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.app-navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Espaçamento entre os itens */
+}
+
+.app-navbar li {
+  position: relative; /* Para posicionar submenus se necessário */
+}
+
+.app-navbar a {
+  text-decoration: none;
+  color: #0d6efd; /* Cor do link azul */
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.app-navbar a:hover,
+.app-navbar a.active { /* Estilo para link ativo (requer NavLink do react-router-dom) */
+  background-color: #0d6efd;
+  color: white;
+}
