@@ -1,0 +1,29 @@
+/* Estilos gerais para containers das páginas de Alunos */
+.alunos-container {
+  padding: 20px;
+  max-width: 900px; /* Limita a largura para melhor leitura em telas grandes */
+  margin: 20px auto; /* Centraliza o container */
+  background-color: #fff; /* Fundo branco */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.alunos-container h2 {
+  color: #343a40; /* Cor escura para títulos */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #0d6efd; /* Linha azul abaixo do título */
+  padding-bottom: 10px;
+}
+
+/* Estilos para tabelas de listagem (reutilizados de global.css ou definidos aqui) */
+.list-container .table {
+  /* Estilos herdados de global.css */
+}
+
+/* Estilos para formulários (Cadastro/Edição) (reutilizados de global.css ou definidos aqui) */
+.form-container .form-group {
+  /* Estilos herdados de global.css */
+}
+
+/* Se precisar de estilos MUITO específicos para Alunos, adicione aqui. */
+/* Ex: .alunos-container .algum-elemento-especifico { ... } */
