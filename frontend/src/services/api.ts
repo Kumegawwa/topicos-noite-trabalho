@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Define a URL base da sua API
 // Certifique-se de que a porta corresponde à porta em que sua API .NET está rodando
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001'; // Use 5001 ou 7001 ou a porta configurada
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5145'; // Alterado para 5145
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,

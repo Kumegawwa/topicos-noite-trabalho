@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Api.Models; // Certifique-se que os modelos Aluno, Curso, Materia estão neste namespace
 using Microsoft.OpenApi.Models; // Necessário para Swagger
 using System.Linq;
+using System.Text.Json.Serialization; // Adicione este using para ReferenceHandler
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,13 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Gerenciador Escolar", Version = "v1" });
 });
+
+// Adicionar configuração para o System.Text.Json lidar com ciclos
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
+
 
 // --- Construção da Aplicação ---
 var app = builder.Build();

@@ -1,20 +1,24 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization; // Adicione este using
 
-public class Materia
+namespace Api.Models
 {
-    public int Id { get; set; }
+    public class Materia
+    {
+        [Key]
+        public int Id { get; set; }
 
-    [Required(ErrorMessage = "O nome da matéria é obrigatório.")]
-    [StringLength(100, MinimumLength = 3, ErrorMessage = "O nome da matéria deve ter entre 3 e 100 caracteres.")]
-    public string Nome { get; set; }
+        [Required(ErrorMessage = "O nome da matéria é obrigatório.")]
+        [StringLength(100, ErrorMessage = "O nome não pode ter mais de 100 caracteres.")]
+        public string Nome { get; set; } = string.Empty; // Inicializa para evitar warnings CS8618
 
-    [Required(ErrorMessage = "É obrigatório associar a matéria a um curso.")]
-    [Range(1, int.MaxValue, ErrorMessage = "O ID do curso associado é inválido.")]
-    public int CursoId { get; set; }
+        // Chave estrangeira para Curso
+        [ForeignKey("Curso")]
+        public int CursoId { get; set; }
 
-    // Propriedade de navegação para o curso
-    [ForeignKey("CursoId")]
-    public Curso? Curso { get; set; } // Permite nulo ou carrega conforme necessário
+        // Propriedade de navegação para o Curso
+        [JsonIgnore] // Adicione esta linha para ignorar a serialização desta propriedade
+        public Curso? Curso { get; set; }
+    }
 }
-

@@ -15,7 +15,7 @@ import EditarCurso from './pages/cursos/EditarCurso';
 import ListarMaterias from './pages/materias/ListarMaterias';
 import CadastrarMateria from './pages/materias/CadastrarMateria';
 import EditarMateria from './pages/materias/EditarMateria';
-import './styles/global.css'; // Estilos globais
+import './styles/global.css'; // Caminho corrigido para global.css dentro de src/
 
 function App() {
   return (
