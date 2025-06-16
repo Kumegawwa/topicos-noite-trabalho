@@ -1,3 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
+# User-agent: *: Indica que as regras abaixo se aplicam a todos os robôs de busca.
 User-agent: *
+# Disallow: /: Uma diretiva 'Disallow' seguida por '/' instrui os robôs a não acessarem
+# nenhuma parte do site. No entanto, neste arquivo, 'Disallow:' está vazio,
+# o que significa que todos os robôs podem rastrear todo o site.
+# Em um ambiente de desenvolvimento ou para um frontend local, isso é comum.
+# Em produção, você pode querer restringir o rastreamento de certas partes do site
+# ou permitir o rastreamento completo, dependendo dos seus requisitos de SEO.
 Disallow:

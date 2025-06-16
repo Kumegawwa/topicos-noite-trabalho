@@ -1,177 +1,190 @@
+/* Este arquivo define estilos CSS que são aplicados globalmente a toda a aplicação React.
+   Ele ajuda a estabelecer uma base visual consistente e a definir padrões de design. */
+
+/* Estilos para o corpo da página (body) */
 body {
-  margin: 0;
+  margin: 0; /* Remove a margem padrão do navegador. */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f4f7f6; /* Um fundo levemente acinzentado */
-  color: #333;
-  line-height: 1.6;
+    sans-serif; /* Define uma pilha de fontes amigável e legível. */
+  -webkit-font-smoothing: antialiased; /* Melhora a renderização da fonte em navegadores WebKit. */
+  -moz-osx-font-smoothing: grayscale; /* Melhora a renderização da fonte em navegadores baseados em Gecko (Firefox). */
+  background-color: #f4f7f6; /* Define uma cor de fundo suave para toda a aplicação. */
+  color: #333; /* Define uma cor de texto escura padrão para boa legibilidade. */
+  line-height: 1.6; /* Aumenta o espaçamento entre linhas para melhor legibilidade do texto. */
 }
 
+/* Estilos para blocos de código (code) */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace; /* Define uma fonte monoespaçada para blocos de código. */
 }
 
+/* Reset básico de box-sizing para todos os elementos */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura do elemento. */
 }
 
+/* Estilos para links (a) */
 a {
-  color: #0d6efd;
-  text-decoration: none;
+  color: #0d6efd; /* Define uma cor azul primária para links. */
+  text-decoration: none; /* Remove o sublinhado padrão dos links. */
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse para indicar interatividade. */
 }
 
 /* Adicione mais estilos globais conforme necessário */
 
-/* Estilos básicos para containers principais */
+/* Estilos básicos para o container principal da aplicação */
 .app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  display: flex; /* Usa flexbox para organizar os elementos filhos (header, navbar, main, footer). */
+  flex-direction: column; /* Organiza os itens em uma coluna. */
+  min-height: 100vh; /* Garante que o container ocupe no mínimo a altura total da viewport. */
 }
 
+/* Estilos para a área de conteúdo principal */
 main {
-  flex-grow: 1;
-  padding: 20px;
-  max-width: 1200px; /* Limita a largura do conteúdo principal */
-  margin: 0 auto; /* Centraliza o conteúdo principal */
-  width: 100%;
+  flex-grow: 1; /* Permite que o conteúdo principal cresça para preencher o espaço disponível. */
+  padding: 20px; /* Adiciona espaçamento interno ao redor do conteúdo. */
+  max-width: 1200px; /* Limita a largura máxima do conteúdo para melhor legibilidade em telas muito largas. */
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente. */
+  width: 100%; /* Garante que ocupe 100% da largura disponível dentro do max-width. */
 }
 
-/* Estilos comuns para formulários e tabelas podem ser colocados aqui
-   ou nos arquivos CSS específicos de cada página/componente 
-   (como feito em Alunos.css, Cursos.css, Materias.css) */
-
-/* Mensagens comuns */
+/* Estilos comuns para mensagens de erro */
 .error-message {
-  color: #dc3545; 
-  background-color: #f8d7da;
-  border: 1px solid #f5c2c7;
-  padding: 10px 15px;
-  border-radius: 4px;
-  margin: 15px 0;
+  color: #dc3545; /* Cor de texto vermelho forte para indicar erro. */
+  background-color: #f8d7da; /* Fundo claro avermelhado para o box de erro. */
+  border: 1px solid #f5c2c7; /* Borda suave avermelhada. */
+  padding: 10px 15px; /* Espaçamento interno. */
+  border-radius: 4px; /* Cantos levemente arredondados. */
+  margin: 15px 0; /* Margem superior e inferior. */
 }
 
+/* Estilos para mensagens de carregamento */
 .loading {
-  text-align: center;
-  padding: 30px;
-  font-size: 1.2em;
-  color: #6c757d;
+  text-align: center; /* Centraliza o texto. */
+  padding: 30px; /* Espaçamento interno. */
+  font-size: 1.2em; /* Aumenta o tamanho da fonte. */
+  color: #6c757d; /* Cor cinza para o texto. */
 }
 
-/* Estilos básicos para botões (podem ser sobrescritos por classes específicas) */
+/* Estilos básicos para botões (base para todos os botões) */
 .btn {
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
+  display: inline-block; /* Permite definir largura e altura, mas se ajusta ao conteúdo. */
+  font-weight: 400; /* Peso da fonte normal. */
+  line-height: 1.5; /* Altura da linha. */
+  color: #212529; /* Cor do texto padrão. */
+  text-align: center; /* Centraliza o texto. */
+  text-decoration: none; /* Remove sublinhado. */
+  vertical-align: middle; /* Alinha verticalmente com outros elementos. */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável. */
+  user-select: none; /* Previne a seleção de texto ao clicar. */
+  background-color: transparent; /* Fundo transparente por padrão. */
+  border: 1px solid transparent; /* Borda transparente por padrão. */
+  padding: 0.375rem 0.75rem; /* Espaçamento interno (top/bottom, left/right). */
+  font-size: 1rem; /* Tamanho da fonte. */
+  border-radius: 0.25rem; /* Cantos arredondados. */
+  /* Transição suave para propriedades de cor, fundo e borda ao interagir. */
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+/* Modificador para botão primário (azul) */
 .btn-primary {
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  color: #fff; /* Texto branco. */
+  background-color: #0d6efd; /* Fundo azul. */
+  border-color: #0d6efd; /* Borda azul. */
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #0b5ed7;
+  background-color: #0b5ed7; /* Tom de azul mais escuro ao passar o mouse. */
   border-color: #0a58ca;
 }
 
+/* Modificador para botão de aviso (amarelo) */
 .btn-warning {
-  color: #000;
-  background-color: #ffc107;
-  border-color: #ffc107;
+  color: #000; /* Texto preto. */
+  background-color: #ffc107; /* Fundo amarelo. */
+  border-color: #ffc107; /* Borda amarela. */
 }
 .btn-warning:hover {
   color: #000;
-  background-color: #ffca2c;
+  background-color: #ffca2c; /* Tom de amarelo mais claro ao passar o mouse. */
   border-color: #ffc720;
 }
 
+/* Modificador para botão de perigo (vermelho) */
 .btn-danger {
-  color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  color: #fff; /* Texto branco. */
+  background-color: #dc3545; /* Fundo vermelho. */
+  border-color: #dc3545; /* Borda vermelha. */
 }
 .btn-danger:hover {
   color: #fff;
-  background-color: #bb2d3b;
+  background-color: #bb2d3b; /* Tom de vermelho mais escuro ao passar o mouse. */
   border-color: #b02a37;
 }
 
+/* Modificador para botões pequenos */
 .btn-sm {
-  padding: 0.25rem 0.5rem;
-  font-size: .875rem;
-  border-radius: 0.2rem;
+  padding: 0.25rem 0.5rem; /* Reduz o padding para um botão menor. */
+  font-size: .875rem; /* Reduz o tamanho da fonte. */
+  border-radius: 0.2rem; /* Cantos levemente mais arredondados para botões pequenos. */
 }
 
-.mb-3 { margin-bottom: 1rem !important; }
-.me-2 { margin-right: 0.5rem !important; }
+/* Classes utilitárias para margens */
+.mb-3 { margin-bottom: 1rem !important; } /* Margem inferior de 1rem. */
+.me-2 { margin-right: 0.5rem !important; } /* Margem direita de 0.5rem. */
 
 /* Estilos básicos para tabelas */
 .table {
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #212529;
-  vertical-align: top;
-  border-color: #dee2e6;
-  border-collapse: collapse;
+  width: 100%; /* Ocupa a largura total do container. */
+  margin-bottom: 1rem; /* Margem inferior. */
+  color: #212529; /* Cor do texto. */
+  vertical-align: top; /* Alinhamento vertical do conteúdo da célula. */
+  border-color: #dee2e6; /* Cor da borda. */
+  border-collapse: collapse; /* Colapsa bordas da célula. */
 }
 .table > :not(caption) > * > * {
-  padding: 0.75rem 0.75rem; /* Aumenta um pouco o padding */
-  background-color: transparent;
-  border-bottom-width: 1px;
+  padding: 0.75rem 0.75rem; /* Padding interno das células. */
+  background-color: transparent; /* Fundo transparente. */
+  border-bottom-width: 1px; /* Borda inferior das células. */
 }
 .table > tbody {
-  vertical-align: inherit;
+  vertical-align: inherit; /* Herda alinhamento vertical. */
 }
 .table > thead {
-  vertical-align: bottom;
+  vertical-align: bottom; /* Alinha cabeçalho na parte inferior da célula. */
 }
 .table > thead th {
-  background-color: #f8f9fa;
-  font-weight: 600;
-  color: #495057;
-  border-bottom-width: 2px;
+  background-color: #f8f9fa; /* Fundo cinza claro para o cabeçalho. */
+  font-weight: 600; /* Peso da fonte mais forte para o cabeçalho. */
+  color: #495057; /* Cor do texto do cabeçalho. */
+  border-bottom-width: 2px; /* Borda inferior mais grossa para o cabeçalho. */
 }
 
+/* Modificador para tabelas zebradas (alterna cores de fundo das linhas) */
 .table-striped > tbody > tr:nth-of-type(odd) > * {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.03); /* Fundo levemente cinza para linhas ímpares. */
 }
 
+/* Modificador para tabelas com efeito hover nas linhas */
 .table-hover > tbody > tr:hover > * {
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: rgba(0, 0, 0, 0.06); /* Fundo mais escuro ao passar o mouse. */
 }
 
 /* Estilos básicos para formulários */
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Margem inferior entre grupos de formulário. */
 }
 
 .form-container label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #495057;
+  display: block; /* Garante que o label ocupe toda a largura disponível. */
+  margin-bottom: 0.5rem; /* Margem inferior entre label e input. */
+  font-weight: 500; /* Peso da fonte semi-negrito. */
+  color: #495057; /* Cor do texto. */
 }
 
 .form-container input[type="text"],
@@ -179,55 +192,58 @@ main {
 .form-container input[type="date"],
 .form-container input[type="number"],
 .form-container select {
-  display: block;
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  appearance: none;
-  border-radius: 0.25rem;
+  display: block; /* Ocupa a largura total do container pai. */
+  width: 100%; /* Largura de 100%. */
+  padding: 0.5rem 0.75rem; /* Espaçamento interno. */
+  font-size: 1rem; /* Tamanho da fonte. */
+  font-weight: 400; /* Peso da fonte normal. */
+  line-height: 1.5; /* Altura da linha. */
+  color: #212529; /* Cor do texto. */
+  background-color: #fff; /* Fundo branco. */
+  background-clip: padding-box; /* Evita que o fundo se estenda além do padding. */
+  border: 1px solid #ced4da; /* Borda cinza clara. */
+  appearance: none; /* Remove estilos padrão do sistema operacional em alguns inputs. */
+  border-radius: 0.25rem; /* Cantos arredondados. */
+  /* Transição suave para propriedades visuais ao focar. */
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .form-container input:focus,
 .form-container select:focus {
-  border-color: #86b7fe;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  border-color: #86b7fe; /* Borda azul mais clara ao focar. */
+  outline: 0; /* Remove o outline padrão. */
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Sombra azul para indicar foco. */
 }
 
+/* Estilo específico para o botão de submit em formulários */
 .form-container .btn-submit {
-  background-color: #0d6efd; 
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.2s ease;
+  background-color: #0d6efd; /* Fundo azul. */
+  color: white; /* Texto branco. */
+  padding: 0.5rem 1rem; /* Espaçamento interno. */
+  border: none; /* Sem borda. */
+  border-radius: 4px; /* Cantos arredondados. */
+  cursor: pointer; /* Cursor de ponteiro. */
+  font-size: 1em; /* Tamanho da fonte. */
+  transition: background-color 0.2s ease; /* Transição suave no hover. */
 }
 
 .form-container .btn-submit:hover {
-  background-color: #0b5ed7; 
+  background-color: #0b5ed7; /* Tom de azul mais escuro no hover. */
 }
 
+/* Estilo específico para o botão de cancelar em formulários */
 .form-container .btn-cancel {
-  background-color: #6c757d; 
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1em;
-  margin-left: 10px;
-  transition: background-color 0.2s ease;
+  background-color: #6c757d; /* Fundo cinza. */
+  color: white; /* Texto branco. */
+  padding: 0.5rem 1rem; /* Espaçamento interno. */
+  border: none; /* Sem borda. */
+  border-radius: 4px; /* Cantos arredondados. */
+  cursor: pointer; /* Cursor de ponteiro. */
+  font-size: 1em; /* Tamanho da fonte. */
+  margin-left: 10px; /* Margem à esquerda para separação do botão de submit. */
+  transition: background-color 0.2s ease; /* Transição suave no hover. */
 }
 
 .form-container .btn-cancel:hover {
-  background-color: #5c636a; 
+  background-color: #5c636a; /* Tom de cinza mais escuro no hover. */
 }
